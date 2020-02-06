@@ -12,20 +12,21 @@
                 <a href="/"><i class="fal fa-atom"></i><span>SCIENCE</span></a>
             </li>
             <li class="nav-separator"></li>
-            <li>
-                <a href="/"><i class="fal fa-sign-in"></i><span>Sign In</span></a>
-            </li>
-            <li>
-                <a href="/"><i class="fal fa-user-plus"></i><span>Sign Up</span></a>
-            </li>
-
-            <!-- NAV AUTH USER -->
-            <li>
-                <a href="/"><i class="fal fa-user"></i><span>User</span></a>
-            </li>
-            <li>
-                <a href="/"><i class="fal fa-sign-out"></i><span>Sign Out</span></a>
-            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="/"><i class="fal fa-user"></i><span>User</span></a>
+                </li>
+                <li>
+                    <a href="/"><i class="fal fa-sign-out"></i><span>Sign Out</span></a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="/"><i class="fal fa-sign-in"></i><span>Sign In</span></a>
+                </li>
+                <li>
+                    <a href="{{ path('user_registration') }}"><i class="fal fa-user-plus"></i><span>Sign Up</span></a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 </aside>

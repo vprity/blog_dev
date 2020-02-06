@@ -8,6 +8,11 @@ security:
             security: false
         main:
             anonymous: lazy
+            logout:
+                path: user_logout
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -17,6 +22,11 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+    role_hierarchy:
+        ROLE_USER: [ROLE_USER]
+        ROLE_AUTHOR: [ROLE_USER, ROLE_AUTHOR]
+        ROLE_ADMIN: [ROLE_USER, ROLE_AUTHOR, ROLE_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_AUTHOR, ROLE_ADMIN, ROLE_SUPER_ADMIN]
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/admin, roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+         - { path: ^/profile, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN] }

@@ -20,7 +20,6 @@ body {
 
 main {
     width: 100vw;
-    height: auto;
     margin-right: 80px;
 }
 
@@ -51,7 +50,6 @@ a {
     max-width: 1200px;
     min-width: 300px;
     padding: 2rem;
-    box-sizing: border-box;
 }
 
 .main-header {
@@ -164,6 +162,7 @@ a {
 
 .container-form {
     width: 300px;
+    margin: 0 auto;
     padding: 2rem;
     background: #FFFFFF;
     box-shadow: 0 0 4px 0 rgba(50, 50, 50, 0.15);
@@ -193,6 +192,7 @@ a {
     background: #FFFFFF;
     border: none;
     border-bottom: 1px solid rgba(50, 50, 50, 0.5);
+    border-radius: 2px;
     box-sizing: border-box;
     z-index: 5;
 }
@@ -224,34 +224,16 @@ a {
 
 .form-errors {
     padding: 0.5rem;
+    border: 1px solid #e74c3c;
     margin-bottom: 1rem;
-    border: 1px solid rgba(231, 76, 60, 0.8);
-    color: rgba(231, 76, 60, 0.8);
 }
 
 .form-errors ul {
     list-style: none;
 }
 
-.form-error {
-    color: rgba(231, 76, 60, 0.8);
-    font-size: 0.8em;
-}
-
-.form-error ul {
-    list-style: none;
-}
-
-.height-100vh {
-    height: 100vh;
-}
-
-.vert-center {
-    align-items: center;
-}
-
-.hor-center {
-    justify-content: center;
+.form-errors li {
+    color: #e74c3c;
 }
 
 .c-t-blue {
