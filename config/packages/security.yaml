@@ -1,7 +1,10 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: null }
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -9,7 +12,10 @@ security:
         main:
             anonymous: lazy
             logout:
-                path: user_logout
+                path: app_logout
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
     encoders:
         App\Entity\User:
             algorithm: bcrypt
@@ -28,5 +34,6 @@ security:
         ROLE_ADMIN: [ROLE_USER, ROLE_AUTHOR, ROLE_ADMIN]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_AUTHOR, ROLE_ADMIN, ROLE_SUPER_ADMIN]
     access_control:
+         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/admin, roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
          - { path: ^/profile, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN] }

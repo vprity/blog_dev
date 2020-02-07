@@ -14,17 +14,17 @@
             <li class="nav-separator"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
-                    <a href="/"><i class="fal fa-user"></i><span>User</span></a>
+                    <a href="{{ path('profile.index') }}"><i class="fal fa-user"></i><span>User</span></a>
                 </li>
                 <li>
-                    <a href="/"><i class="fal fa-sign-out"></i><span>Sign Out</span></a>
+                    <a href="{{ path('app_logout') }}"><i class="fal fa-sign-out"></i><span>Sign Out</span></a>
                 </li>
             {% else %}
                 <li>
-                    <a href="/"><i class="fal fa-sign-in"></i><span>Sign In</span></a>
+                    <a href="{{ path('app_login') }}"><i class="fal fa-sign-in"></i><span>Sign In</span></a>
                 </li>
                 <li>
-                    <a href="{{ path('user_registration') }}"><i class="fal fa-user-plus"></i><span>Sign Up</span></a>
+                    <a href="{{ path('app_registration') }}"><i class="fal fa-user-plus"></i><span>Sign Up</span></a>
                 </li>
             {% endif %}
         </ul>

@@ -6,7 +6,7 @@
     <main>
         <div class="main height-100vh vert-center hor-center">
             <div class="container-form">
-                <h1 class="main-header c-t-black">SIGN UP</h1>
+                <h1 class="main-header c-t-black">РЕГИСТРАЦИЯ</h1>
                 {{ form_start(form_registration) }}
                     <div class="form-error">{{ form_errors(form_registration.email) }}</div>
                     <div class="form-row">
@@ -25,6 +25,7 @@
                         <i class="fal fa-lock"></i>
                         {{ form_widget(form_registration.plainPassword.second) }}
                     </div>
+
                     <div class="form-row">
                         {{ form_widget(form_registration.registration) }}
                     </div>

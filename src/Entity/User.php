@@ -35,9 +35,6 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=64)
-     * @Assert\NotBlank(
-     *     message="Пустое поле"
-     * )
      */
     private $password;
 
