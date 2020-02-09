@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="main">
+            <h1 class="main-header c-t-black">ПРОФИЛЬ</h1>
+            <div class="profile-header">
+                <div class="profile-email c-t-blue">{{ app.user.email }}</div>
+                <nav class="profile-nav">
+                    <ul>
+                        <li><i class="fal fa-user-cog"></i></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="profile-modules">
+                <div class="module">
+                    <div class="module-header">
+                        <h3 class="module-title">Комментарии</h3>
+                        <nav class="module-nav">
+                            <ul>
+                                <li title="Показать все комментарии"><i class="fal fa-comments-alt"></i></li>
+                                <li title="Настройки модуля"><i class="fal fa-cog"></i></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="module-content">
+                        <table class="module-table">
+                            <tbody>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            <tr>
+                                <td>post</td>
+                                <td>comment</td>
+                                <td>2020-02-20</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

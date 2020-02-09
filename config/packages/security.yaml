@@ -35,5 +35,5 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_AUTHOR, ROLE_ADMIN, ROLE_SUPER_ADMIN]
     access_control:
          - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/admin, roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-         - { path: ^/profile, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+         - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+         - { path: ^/profile, roles: IS_AUTHENTICATED_FULLY }

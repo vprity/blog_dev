@@ -162,6 +162,107 @@ a {
     color: #FFFFFF;
 }
 
+.profile-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-email {
+    font-weight: 300;
+}
+
+.profile-nav {
+    margin-left: 1rem;
+}
+
+.profile-nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.profile-nav li:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.profile-nav i {
+    color: rgba(50, 50, 50, 0.5);
+    cursor: pointer;
+}
+
+.profile-nav i:hover {
+    color: rgba(50, 50, 50, 1);
+}
+
+.profile-modules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    justify-items: center;
+    margin: 1rem 0;
+}
+
+.module {
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(50, 50, 50, 0.15);
+    border-radius: 0 0 2px 2px;
+    box-sizing: border-box;
+}
+
+.module-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 2px 2px 0 0;
+    background: #333333;
+}
+
+.module-nav {
+    color: #FFFFFF;
+}
+
+.module-nav i {
+    cursor: pointer;
+}
+
+.module-nav i:hover {
+    color: #3498db;
+}
+
+.module-nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.module-nav li:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.module-title {
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.module-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.module-table tbody tr:nth-of-type(2n) {
+    background: rgba(50, 50, 50, 0.05);
+}
+
+.module-table tbody tr td {
+    text-align: center;
+    font-weight: 300;
+    color: #333333;
+    padding: 0.4rem 0;
+}
+
 .container-form {
     width: 300px;
     padding: 2rem;
@@ -278,6 +379,10 @@ a {
     color: #333333;
 }
 
+.c-t-black_light {
+    color: #5f5f5f;
+}
+
 /* MEDIA */
 @media screen and (min-width: 1024px) {
 
@@ -286,6 +391,10 @@ a {
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .container {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .profile-modules {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -296,5 +405,9 @@ a {
 
     .container-item:hover .item-img img {
         transform: none;
+    }
+
+    .profile-modules {
+        grid-template-columns: 1fr;
     }
 }

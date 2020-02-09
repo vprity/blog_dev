@@ -13,6 +13,21 @@
             </li>
             <li class="nav-separator"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="#"><i class="fal fa-user-crown"></i><span>Admin panel</span></a>
+                    </li>
+                    <li class="nav-separator"></li>
+                {% endif %}
+
+                {% if is_granted('ROLE_AUTHOR') %}
+                    <li>
+                        <a href="#"><i class="fal fa-user-edit"></i><span>Author panel</span></a>
+                    </li>
+                    <li class="nav-separator"></li>
+                {% endif %}
+
                 <li>
                     <a href="{{ path('profile.index') }}"><i class="fal fa-user"></i><span>User</span></a>
                 </li>
