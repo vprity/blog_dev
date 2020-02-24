@@ -23,7 +23,7 @@
 
                 {% if is_granted('ROLE_AUTHOR') %}
                     <li>
-                        <a href="#"><i class="fal fa-user-edit"></i><span>Author panel</span></a>
+                        <a href="{{ path('author.index') }}"><i class="fal fa-user-edit"></i><span>Author panel</span></a>
                     </li>
                     <li class="nav-separator"></li>
                 {% endif %}

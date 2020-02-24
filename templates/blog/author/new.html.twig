@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новая статья{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="main">
+            <h1 class="main-header c-t-black">НОВАЯ СТАТЬЯ</h1>
+            <div class="main-container">
+                <div class="container-form width-700px align-hor-center">
+                    {{ form_start(form_post) }}
+                    <div class="form-error">{{ form_errors(form_post.title) }}</div>
+                    <div class="form-control">
+                        {{ form_label(form_post.title) }}
+                        <div class="form-input">{{ form_widget(form_post.title) }}</div>
+                    </div>
+
+                    <div class="form-error">{{ form_errors(form_post.content) }}</div>
+                    <div class="form-control">
+                        {{ form_label(form_post.content) }}
+                        {{ form_widget(form_post.content) }}
+                    </div>
+
+                    <div class="form-error">{{ form_errors(form_post.createdAt) }}</div>
+                    <div class="form-control">
+                        {{ form_label(form_post.createdAt) }}
+                        <div class="field-datetime">
+                            {{ form_widget(form_post.createdAt) }}
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <div class="form-file">
+                            <div class="field-file">{{ form_widget(form_post.img_path, {'attr': {'onchange': 'form_file_field(this);'}}) }}</div>
+                            <label class="field-label" for="{{ form_post.img_path.vars.id }}"><i class="fal fa-upload"></i> Загрузить картинку</label>
+                            <div class="field-file-name" id="form_file_name"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        {{ form_widget(form_post.post) }}
+                    </div>
+                    {{ form_end(form_post) }}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/bundles/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create(
+                document.querySelector( '#post_content' ))
+            .then(
+                editor => {console.log(editor);}
+            )
+            .catch(
+                error => {console.error(error);}
+            );
+    </script>
+{% endblock %}
