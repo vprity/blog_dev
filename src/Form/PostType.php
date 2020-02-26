@@ -25,7 +25,7 @@ class PostType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Основной текст',
-                'required' => true,
+                'required' => false,
             ])
             ->add('img_path', FileType::class, [
                 'label' => 'Загрузить картинку',

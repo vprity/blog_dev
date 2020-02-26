@@ -416,7 +416,6 @@ a {
 
 .form-control textarea {
     resize: vertical;
-    min-height: 400px;
     border-radius: 2px;
 }
 
@@ -598,6 +597,11 @@ a {
 
 .c-t-black_light {
     color: #5f5f5f;
+}
+
+/* Bundles */
+.ck-editor__editable_inline {
+    min-height: 500px !important;
 }
 
 /* MEDIA */

@@ -32,7 +32,8 @@
                     <div class="form-control">
                         <div class="form-file">
                             <div class="field-file">{{ form_widget(form_post.img_path, {'attr': {'onchange': 'form_file_field(this);'}}) }}</div>
-                            <label class="field-label" for="{{ form_post.img_path.vars.id }}"><i class="fal fa-upload"></i> Загрузить картинку</label>
+                            <label class="field-label" for="{{ form_post.img_path.vars.id }}"><i
+                                        class="fal fa-upload"></i> Загрузить картинку</label>
                             <div class="field-file-name" id="form_file_name"></div>
                         </div>
                     </div>
@@ -51,14 +52,12 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/bundles/ckeditor.js') }}"></script>
     <script>
+
         ClassicEditor
-            .create(
-                document.querySelector( '#post_content' ))
-            .then(
-                editor => {console.log(editor);}
-            )
-            .catch(
-                error => {console.error(error);}
+            .create(document.querySelector('#post_content'))
+            .catch(error => {
+                    console.error(error);
+                }
             );
     </script>
 {% endblock %}
