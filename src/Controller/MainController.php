@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,8 +16,10 @@ class MainController extends AbstractController
      */
     public function index()
     {
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy([], ['createdAt' => 'DESC']);
+
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'posts' => $posts,
         ]);
     }
 }

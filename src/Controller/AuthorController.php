@@ -22,7 +22,11 @@ class AuthorController extends AbstractController
      */
     public function index()
     {
-        return $this->render('blog/author/index.html.twig');
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy([], ['id' => 'DESC']);
+
+        return $this->render('blog/author/index.html.twig', [
+            'posts' => $posts,
+        ]);
     }
 
     /**
@@ -36,6 +40,13 @@ class AuthorController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
+
+            if ($user->getFirstName() && $user->getLastName()) {
+                $user = $user->getFirstName() . ' ' . $user->getLastName();
+            } else {
+                $user = $user->getEmail();
+            }
+
             $img_file = $form->get('img_path')->getData();
 
             if ($img_file) {
@@ -48,7 +59,21 @@ class AuthorController extends AbstractController
                 } catch (FileException $e){
 
                 }
+
+                $post->setImgPath($new_filename);
             }
+
+            $post->setTitle($form->get('title')->getData());
+            $post->setContent($form->get('content')->getData());
+            $post->setCreatedAt($form->get('createdAt')->getData());
+            $post->setUpdatedAt($form->get('createdAt')->getData());
+            $post->setAuthor($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+
+            return $this->redirectToRoute('author.index');
         }
 
         return $this->render('blog/author/new.html.twig', [

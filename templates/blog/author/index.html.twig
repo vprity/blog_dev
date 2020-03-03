@@ -10,7 +10,11 @@
                 <nav class="container-nav">
                     <ul>
                         <li>
-                            <a href="{{ path('author.post_new') }}"><i class="fal fa-plus-square"></i> Новая статья</a>
+                            {% if app.user.firstName and app.user.lastName %}
+                                <a href="{{ path('author.post_new') }}"><i class="fal fa-plus-square"></i> Новая статья</a>
+                            {% else %}
+                                <span>Чтобы добавлять новость. Зайдите в<a href="#"> настройки профиля</a> и заполните поля "Имя" и "Фамилия"</span>
+                            {% endif %}
                         </li>
                     </ul>
                 </nav>
@@ -18,7 +22,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ЗАГОЛОВОК</th>
+                            <th class="t-w-400px">ЗАГОЛОВОК</th>
                             <th>ДАТА СОЗДАНИЯ</th>
                             <th>ДАТА РЕДАКТИРОВАНИЯ</th>
                             <th>META</th>
@@ -27,38 +31,44 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>12</td>
-                            <td>Рекуррентные нейронные сети (RNN) с Keras</td>
-                            <td>10-10-2019 19:00</td>
-                            <td>11-10-2019 21:00</td>
-                            <td>
-                                <ul>
-                                    <li class="badge c-bg-purple f-s-08">
-                                        <span>30 <i class="fal fa-eye"></i></span>
-                                    </li>
-                                    <li class="badge c-bg-purple f-s-08">
-                                        <span>5 <i class="fal fa-comments-alt"></i></span>
-                                    </li>
-                                    <li class="badge c-bg-purple f-s-08">
-                                        <span>10 <i class="fal fa-thumbs-up"></i></span>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <span class="c-t-turquoise f-s-08">АКТИВЕН</span>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li class="badge c-bg-orange f-s-08">
-                                        <a href=""><i class="fal fa-edit"></i> Edit</a>
-                                    </li>
-                                    <li class="badge c-bg-red f-s-08">
-                                        <a href=""><i class="fal fa-trash"></i> Remove</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                        {% for post in posts %}
+                            <tr>
+                                <td>{{ post.id }}</td>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.createdAt|date('Y-m-d H:i') }}</td>
+                                <td>{{ post.updatedAt|date('Y-m-d H:i') }}</td>
+                                <td>
+                                    <ul>
+                                        <li class="badge c-bg-purple f-s-08">
+                                            <span>{{ post.meta.views }} <i class="fal fa-eye"></i></span>
+                                        </li>
+                                        <li class="badge c-bg-purple f-s-08">
+                                            <span>{{ post.meta.comments }} <i class="fal fa-comments-alt"></i></span>
+                                        </li>
+                                        <li class="badge c-bg-purple f-s-08">
+                                            <span>{{ post.meta.likes }} <i class="fal fa-thumbs-up"></i></span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    {% if post.meta.status == 0 %}
+                                        <span class="c-t-red f-s-08">НЕ АКТИВЕН</span>
+                                    {% elseif post.meta.status == 1 %}
+                                        <span class="c-t-turquoise f-s-08">АКТИВЕН</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li class="badge c-bg-orange f-s-08">
+                                            <a href=""><i class="fal fa-edit"></i> Edit</a>
+                                        </li>
+                                        <li class="badge c-bg-red f-s-08">
+                                            <a href=""><i class="fal fa-trash"></i> Remove</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

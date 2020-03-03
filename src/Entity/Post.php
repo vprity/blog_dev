@@ -29,7 +29,7 @@ class Post
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $img_path;
+    private $img_path = 'post-default-img.png';
 
     /**
      * @ORM\Column(type="datetime")
@@ -49,7 +49,7 @@ class Post
     /**
      * @ORM\Column(type="json")
      */
-    private $meta = [];
+    private $meta = ['views' => 0, 'comments' => 0, 'likes' => 0, 'status' => 1];
 
     public function getId(): ?int
     {
