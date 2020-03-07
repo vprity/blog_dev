@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\User;
 use App\Form\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,7 +23,7 @@ class AuthorController extends AbstractController
      */
     public function index()
     {
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy([], ['id' => 'DESC']);
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy(['author' => $this->getUser()], ['id' => 'DESC']);
 
         return $this->render('blog/author/index.html.twig', [
             'posts' => $posts,
@@ -39,14 +40,6 @@ class AuthorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $this->getUser();
-
-            if ($user->getFirstName() && $user->getLastName()) {
-                $user = $user->getFirstName() . ' ' . $user->getLastName();
-            } else {
-                $user = $user->getEmail();
-            }
-
             $img_file = $form->get('img_path')->getData();
 
             if ($img_file) {
@@ -65,9 +58,7 @@ class AuthorController extends AbstractController
 
             $post->setTitle($form->get('title')->getData());
             $post->setContent($form->get('content')->getData());
-            $post->setCreatedAt($form->get('createdAt')->getData());
-            $post->setUpdatedAt($form->get('createdAt')->getData());
-            $post->setAuthor($user);
+            $post->setAuthor($this->getUser());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
@@ -79,5 +70,49 @@ class AuthorController extends AbstractController
         return $this->render('blog/author/new.html.twig', [
             'form_post' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/post/{id}", name="post_show")
+     */
+    public function show(Post $post)
+    {
+
+    }
+
+    /**
+     * @Route("/edit/{id}", name="post_edit")
+     */
+    public function edit(Request $request, Post $post)
+    {
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('author.post_edit', ['id' => $post->getId()]);
+        }
+
+        return $this->render('blog/author/edit.html.twig', [
+            'form_post' => $form->createView(),
+            'post' => $post,
+        ]);
+    }
+
+    /**
+     * @Route("/remove/{id}", name="post_delete")
+     */
+    public function delete(Request $request, Post $post)
+    {
+        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+            return $this->redirectToRoute('author.index');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+
+        return $this->redirectToRoute('author.index');
     }
 }

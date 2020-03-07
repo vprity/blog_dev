@@ -160,6 +160,10 @@ a {
     background: rgba(50, 50, 50, 0.05);
 }
 
+.table-is-empty {
+    color: rgba(50, 50, 50, 0.5);
+}
+
 .container-nav {
     margin-bottom: 1rem;
 }
@@ -516,6 +520,13 @@ a {
 
 .badge a {
     color: #FFFFFF;
+}
+
+.badge button {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .f-s-09 {

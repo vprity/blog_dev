@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Новая статья{% endblock %}
+{% block title %}Редактирование "{{ post.title }}"{% endblock %}
 
 {% block body %}
     <main>
         <div class="main">
-            <h1 class="main-header c-t-black">НОВАЯ СТАТЬЯ</h1>
+            <h1 class="main-header c-t-black">Редактирование "{{ post.title }}"</h1>
             <div class="main-container">
                 <div class="container-form width-700px align-hor-center">
                     {{ form_start(form_post) }}

@@ -20,17 +20,22 @@
                 </nav>
                 <table>
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th class="t-w-400px">ЗАГОЛОВОК</th>
-                            <th>ДАТА СОЗДАНИЯ</th>
-                            <th>ДАТА РЕДАКТИРОВАНИЯ</th>
-                            <th>META</th>
-                            <th>СТАТУС</th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th class="t-w-400px">ЗАГОЛОВОК</th>
+                        <th>ДАТА СОЗДАНИЯ</th>
+                        <th>ДАТА РЕДАКТИРОВАНИЯ</th>
+                        <th>META</th>
+                        <th>СТАТУС</th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
+                    {% if posts is empty %}
+                        <tr>
+                            <td class="table-is-empty" colspan="7">Empty</td>
+                        </tr>
+                    {% else %}
                         {% for post in posts %}
                             <tr>
                                 <td>{{ post.id }}</td>
@@ -60,15 +65,16 @@
                                 <td>
                                     <ul>
                                         <li class="badge c-bg-orange f-s-08">
-                                            <a href=""><i class="fal fa-edit"></i> Edit</a>
+                                            <a href="{{ path('author.post_edit', {id: post.id}) }}"><i class="fal fa-edit"></i> Edit</a>
                                         </li>
                                         <li class="badge c-bg-red f-s-08">
-                                            <a href=""><i class="fal fa-trash"></i> Remove</a>
+                                            {{ include('blog/author/_delete_form.html.twig', {post: post}, with_context = false) }}
                                         </li>
                                     </ul>
                                 </td>
                             </tr>
                         {% endfor %}
+                    {% endif %}
                     </tbody>
                 </table>
             </div>

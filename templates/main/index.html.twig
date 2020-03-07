@@ -9,7 +9,7 @@
                 {% for post in posts %}
                     <div class="container-item">
                         <div class="item-img">
-                            <img src="{{ asset('uploads/posts/img/' ~ post.imgPath ) }}" alt="">
+                            <img src="{{ asset('uploads/posts/img/' ~ post.imgPath ) }}" alt="{{ post.title }}">
                         </div>
                         <div class="item-title">
                             <h2>{{ post.title }}</h2>

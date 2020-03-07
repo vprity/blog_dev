@@ -42,12 +42,6 @@ class PostType extends AbstractType
                     ])
                 ]
             ])
-            ->add('createdAt', DateTimeType::class, [
-                'label' => 'Дата публикации',
-                'html5' => true,
-                'widget' => 'single_text',
-                'data' => new \DateTime(),
-            ])
             ->add('post', SubmitType::class, [
                 'label' => 'Опубликовать'
             ])
