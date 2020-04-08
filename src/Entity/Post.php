@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -48,14 +49,30 @@ class Post
     private $author;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $meta = ['views' => 0, 'comments' => 0, 'likes' => 0, 'status' => 1];
+    private $category;
 
-    public function __construct()
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\PostMeta", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $meta;
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function updateTimestamps(): void
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $dateTimeNow = new \DateTime();
+
+        $this->setUpdatedAt($dateTimeNow);
+
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 
     public function getId(): ?int
@@ -135,12 +152,24 @@ class Post
         return $this;
     }
 
-    public function getMeta(): ?array
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getMeta(): ?PostMeta
     {
         return $this->meta;
     }
 
-    public function setMeta(array $meta): self
+    public function setMeta(?PostMeta $meta): self
     {
         $this->meta = $meta;
 

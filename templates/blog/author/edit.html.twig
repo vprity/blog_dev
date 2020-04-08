@@ -21,12 +21,18 @@
                         {{ form_widget(form_post.content) }}
                     </div>
 
+                    <div class="form-error">{{ form_errors(form_post.category) }}</div>
+                    <div class="form-control">
+                        {{ form_label(form_post.category) }}
+                        {{ form_widget(form_post.category) }}
+                    </div>
+
                     <div class="form-control">
                         <div class="form-file">
                             <div class="field-file">{{ form_widget(form_post.img_path, {'attr': {'onchange': 'form_file_field(this);'}}) }}</div>
                             <label class="field-label" for="{{ form_post.img_path.vars.id }}"><i
                                         class="fal fa-upload"></i> Загрузить картинку</label>
-                            <div class="field-file-name" id="form_file_name"></div>
+                            <div class="field-file-name" id="form_file_name">{{ post.imgPath }}</div>
                         </div>
                     </div>
 

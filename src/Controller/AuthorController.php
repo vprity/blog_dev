@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Post;
+use App\Entity\PostMeta;
 use App\Entity\User;
 use App\Form\PostType;
+use App\Service\FileUploader;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -32,35 +34,33 @@ class AuthorController extends AbstractController
 
     /**
      * @Route("/new", name="post_new")
+     * @param Request $request
+     * @param FileUploader $fileUploader
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function new(Request $request)
+    public function new(Request $request, FileUploader $fileUploader)
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $post_meta = new PostMeta();
             $img_file = $form->get('img_path')->getData();
 
             if ($img_file) {
-                $original_filename = pathinfo($img_file->getClientOriginalName(), PATHINFO_FILENAME);
-                $safe_filename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $original_filename);
-                $new_filename = $safe_filename . '-' . uniqid() . '.' . $img_file->guessExtension();
-
-                try {
-                    $img_file->move($this->getParameter('post_img'), $new_filename);
-                } catch (FileException $e){
-
-                }
-
-                $post->setImgPath($new_filename);
+                $filename = $fileUploader->upload($img_file);
+                $post->setImgPath($filename);
             }
 
             $post->setTitle($form->get('title')->getData());
             $post->setContent($form->get('content')->getData());
+            $post->setCategory($form->get('category')->getData());
             $post->setAuthor($this->getUser());
+            $post->setMeta($post_meta);
 
             $em = $this->getDoctrine()->getManager();
+            $em->persist($post_meta);
             $em->persist($post);
             $em->flush();
 
@@ -73,22 +73,34 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/post/{id}", name="post_show")
-     */
-    public function show(Post $post)
-    {
-
-    }
-
-    /**
      * @Route("/edit/{id}", name="post_edit")
+     * @param Request $request
+     * @param Post $post
+     * @param FileUploader $fileUploader
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(Request $request, Post $post)
+    public function edit(Request $request, Post $post, FileUploader $fileUploader)
     {
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $img_file = $form->get('img_path')->getData();
+
+            if ($img_file) {
+                $filesystem = new Filesystem();
+                $filesystem_img = $this->getParameter('post_img');
+
+                $file = $filesystem_img . $post->getImgPath();
+
+                if ($filesystem->exists($file)) {
+                    $filesystem->remove($file);
+                }
+
+                $filename = $fileUploader->upload($img_file);
+                $post->setImgPath($filename);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('author.post_edit', ['id' => $post->getId()]);
@@ -102,11 +114,26 @@ class AuthorController extends AbstractController
 
     /**
      * @Route("/remove/{id}", name="post_delete")
+     * @param Request $request
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function delete(Request $request, Post $post)
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
             return $this->redirectToRoute('author.index');
+        }
+
+        $post_entity = new Post();
+
+        if ($post->getImgPath() !== $post_entity->getImgPath()) {
+            $filesystem = new Filesystem();
+            $filesystem_img = $this->getParameter('post_img');
+            $file = $filesystem_img . $post->getImgPath();
+
+            if ($filesystem->exists($file)) {
+                $filesystem->remove($file);
+            }
         }
 
         $em = $this->getDoctrine()->getManager();
