@@ -103,6 +103,7 @@ a {
 .main-nav a span {
     font-size: 0.7em;
     font-weight: 300;
+    text-transform: uppercase;
 }
 
 .main-nav img {

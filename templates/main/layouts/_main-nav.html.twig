@@ -1,17 +1,12 @@
 <aside>
     <nav class="main-nav">
         <ul>
-
             <li class="logo-text"><a href="/">DEV_</a></li>
-            <li>
-                <a href="/"><i class="fal fa-globe"></i><span>WEB</span></a>
-            </li>
-            <li>
-                <a href="/"><i class="fal fa-function"></i><span>MATHS</span></a>
-            </li>
-            <li>
-                <a href="/"><i class="fal fa-atom"></i><span>SCIENCE</span></a>
-            </li>
+            {% for category in categories.getCategories %}
+                <li>
+                    <a href="#"><i class="{{ category.icon }}"></i><span>{{ category.name }}</span></a>
+                </li>
+            {% endfor %}
             <li class="nav-separator"></li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 

@@ -4,23 +4,19 @@
 namespace App\Service;
 
 use App\Entity\Category;
-use Twig\Environment;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CategoryService
 {
-    private $twig;
+    private $doctrine;
 
-    public function __construct(Environment $twig)
+    public function __construct(EntityManagerInterface $doctrine)
     {
-        $this->twig = $twig;
+        $this->doctrine = $doctrine;
     }
 
-    public function navigationCategory()
+    public function getCategories()
     {
-        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-
-        $this->twig->render('main/layouts/_main-nav.html.twig', [
-            'categories' => $categories,
-        ]);
+        return $this->doctrine->getRepository(Category::class)->findByAllCategories();
     }
 }

@@ -19,9 +19,12 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    public function findByName()
+    public function findByAllCategories()
     {
+        $entity_manager = $this->getEntityManager();
+        $query = $entity_manager->createQuery("SELECT c.id, c.name, c.icon FROM App\Entity\Category c ORDER BY c.id ASC");
 
+        return $query->getResult();
     }
 
     // /**
