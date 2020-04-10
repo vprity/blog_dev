@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,10 +56,20 @@ class Post
     private $category;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="posts")
+     */
+    private $tags;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\PostMeta", cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $meta;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @ORM\PrePersist()
@@ -160,6 +171,32 @@ class Post
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection|Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    public function addTags(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tags->contains($tag)) {
+            $this->tags->removeElement($tag);
+        }
 
         return $this;
     }
