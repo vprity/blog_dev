@@ -294,6 +294,40 @@ a {
 
 /* * * * * * * * * * * * * * */
 
+.container-post .post-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.container-post .post-tags i {
+    margin-right: 1rem;
+    color: #34b4fa;
+}
+
+.container-post .post-tags ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.container-post .post-tags li {
+    padding: 0.2rem 0.4rem;
+    background: rgba(50, 50, 50, 0.2);
+    color: #FFFFFF;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.container-post .post-tags li:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.container-post .post-tags li:hover {
+    background: #34b4fa;
+}
+
 .profile-header {
     display: flex;
     flex-direction: row;

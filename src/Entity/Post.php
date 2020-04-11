@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="`post`")
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -176,9 +178,9 @@ class Post
     }
 
     /**
-     * @return ArrayCollection|Tag[]
+     * @return Collection|Tag[]
      */
-    public function getTags()
+    public function getTags(): Collection
     {
         return $this->tags;
     }
