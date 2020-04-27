@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Entity\PostMeta;
+use App\Entity\Tag;
 use App\Entity\User;
 use App\Form\PostType;
 use App\Service\FileUploader;
@@ -42,6 +43,9 @@ class AuthorController extends AbstractController
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
+
+        //dump($request);die;
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,11 +57,7 @@ class AuthorController extends AbstractController
                 $post->setImgPath($filename);
             }
 
-            $post->setTitle($form->get('title')->getData());
-            $post->setContent($form->get('content')->getData());
-            $post->setCategory($form->get('category')->getData());
-            $post->setAuthor($this->getUser());
-            $post->setMeta($post_meta);
+            $post->setAuthor($this->getUser())->setMeta($post_meta);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($post_meta);

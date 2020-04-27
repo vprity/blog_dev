@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,32 +20,13 @@ class TagRepository extends ServiceEntityRepository
         parent::__construct($registry, Tag::class);
     }
 
-    // /**
-    //  * @return Tag[] Returns an array of Tag objects
-    //  */
     /*
-    public function findByExampleField($value)
+    public function findByGetArray($array)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $em = $this->getEntityManager();
+        $dql = $em->createQuery("SELECT t.name FROM App\Entity\Tag t WHERE t.name IN (:names)")->setParameter('names', $array);
 
-    /*
-    public function findOneBySomeField($value): ?Tag
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $dql->getResult(Query::HYDRATE_SCALAR);
     }
     */
 }

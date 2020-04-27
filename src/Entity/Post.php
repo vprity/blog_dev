@@ -58,7 +58,7 @@ class Post
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="posts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="posts", cascade={"persist"})
      */
     private $tags;
 
@@ -185,7 +185,7 @@ class Post
         return $this->tags;
     }
 
-    public function addTags(Tag $tag): self
+    public function addTag(Tag $tag): self
     {
         if (!$this->tags->contains($tag)) {
             $this->tags[] = $tag;

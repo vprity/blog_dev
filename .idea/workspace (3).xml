@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b507116b-1ee7-4911-90d1-988f8a2f85fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/DataTransformer/TagArrayToStringTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blog_dev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog_dev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/vladimir.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TagRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/author/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/author/new.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="blog_dev: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="blog_dev: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="blog_dev: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog_dev@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="blog_dev: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/orm-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1WQoKQEHhug04f8gnDBPgmteuWh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/uploads/posts/img" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\templates\main\post" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\uploads\posts\img" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\js\bundles" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\js" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\templates\user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\uploads\posts\img" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\img" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\css" />
+      <recent name="E:\YD\PROJECT\web\symfony\blog\blog_dev\public\fonts" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b507116b-1ee7-4911-90d1-988f8a2f85fd" name="Default Changelist" comment="" />
+      <created>1579091114765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579091114765</updated>
+      <workItem from="1579091116913" duration="1772000" />
+      <workItem from="1579178479140" duration="76000" />
+      <workItem from="1579272664680" duration="6121000" />
+      <workItem from="1579345634213" duration="4300000" />
+      <workItem from="1579367806895" duration="1528000" />
+      <workItem from="1579434370577" duration="3577000" />
+      <workItem from="1579443807700" duration="4235000" />
+      <workItem from="1579512398145" duration="3009000" />
+      <workItem from="1579537479535" duration="1293000" />
+      <workItem from="1579601651888" duration="3052000" />
+      <workItem from="1579618973942" duration="1291000" />
+      <workItem from="1579701744129" duration="1127000" />
+      <workItem from="1580153133877" duration="2990000" />
+      <workItem from="1580186836704" duration="4215000" />
+      <workItem from="1580346814473" duration="885000" />
+      <workItem from="1580447455898" duration="3174000" />
+      <workItem from="1580551125458" duration="3886000" />
+      <workItem from="1580562080971" duration="3530000" />
+      <workItem from="1580639670724" duration="2502000" />
+      <workItem from="1580811191083" duration="1915000" />
+      <workItem from="1580834911591" duration="1583000" />
+      <workItem from="1580911194717" duration="681000" />
+      <workItem from="1580919359553" duration="3307000" />
+      <workItem from="1580994653030" duration="1319000" />
+      <workItem from="1581010646771" duration="1776000" />
+      <workItem from="1581082413177" duration="2783000" />
+      <workItem from="1581091577218" duration="2479000" />
+      <workItem from="1581178739116" duration="3278000" />
+      <workItem from="1581189864076" duration="3005000" />
+      <workItem from="1581228370251" duration="1056000" />
+      <workItem from="1581286915267" duration="2837000" />
+      <workItem from="1581468944945" duration="3196000" />
+      <workItem from="1581537135344" duration="2960000" />
+      <workItem from="1581553497142" duration="2556000" />
+      <workItem from="1581659644368" duration="5426000" />
+      <workItem from="1581815786189" duration="3144000" />
+      <workItem from="1581830057722" duration="3065000" />
+      <workItem from="1582199337962" duration="1464000" />
+      <workItem from="1582290101585" duration="8524000" />
+      <workItem from="1582539899044" duration="2317000" />
+      <workItem from="1582558184353" duration="4164000" />
+      <workItem from="1582714426018" duration="823000" />
+      <workItem from="1582729649331" duration="3542000" />
+      <workItem from="1583014073025" duration="2656000" />
+      <workItem from="1583024393932" duration="2207000" />
+      <workItem from="1583118167753" duration="2815000" />
+      <workItem from="1583202886526" duration="97000" />
+      <workItem from="1583257767036" duration="3646000" />
+      <workItem from="1583376310126" duration="2346000" />
+      <workItem from="1583392483306" duration="599000" />
+      <workItem from="1583464128670" duration="545000" />
+      <workItem from="1583475027481" duration="2230000" />
+      <workItem from="1583489088043" duration="1809000" />
+      <workItem from="1583556569532" duration="3687000" />
+      <workItem from="1583665181172" duration="9279000" />
+      <workItem from="1583747188163" duration="604000" />
+      <workItem from="1583760359863" duration="4296000" />
+      <workItem from="1583834650482" duration="1891000" />
+      <workItem from="1583842533138" duration="2448000" />
+      <workItem from="1583859012706" duration="1760000" />
+      <workItem from="1583923891966" duration="51000" />
+      <workItem from="1583924288514" duration="843000" />
+      <workItem from="1584021602873" duration="4498000" />
+      <workItem from="1584032473102" duration="38000" />
+      <workItem from="1584107318056" duration="2540000" />
+      <workItem from="1584193087000" duration="2657000" />
+      <workItem from="1584469111557" duration="598000" />
+      <workItem from="1584634484813" duration="599000" />
+      <workItem from="1584767530375" duration="599000" />
+      <workItem from="1586248891157" duration="456000" />
+      <workItem from="1586249418094" duration="224000" />
+      <workItem from="1586262717059" duration="389000" />
+      <workItem from="1586333857977" duration="6213000" />
+      <workItem from="1586365753790" duration="265000" />
+      <workItem from="1586432037366" duration="12000" />
+      <workItem from="1586432091509" duration="3293000" />
+      <workItem from="1586505415443" duration="2900000" />
+      <workItem from="1586620787184" duration="4409000" />
+      <workItem from="1586685206977" duration="1934000" />
+      <workItem from="1586776376054" duration="1505000" />
+      <workItem from="1586782780800" duration="953000" />
+      <workItem from="1586959694553" duration="1078000" />
+      <workItem from="1587425411172" duration="599000" />
+      <workItem from="1587440241380" duration="1184000" />
+      <workItem from="1587452245686" duration="2276000" />
+      <workItem from="1587594232754" duration="5479000" />
+      <workItem from="1587766955013" duration="5151000" />
+      <workItem from="1587854123321" duration="2290000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="224" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586432044906">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="320" y="224" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.994@0.0.1280.994" timestamp="1586432044906" />
+    <state x="370" y="251" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586623201945">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="370" y="251" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.994@0.0.1280.994" timestamp="1586623201945" />
+    <state x="419" y="238" key="FileChooserDialogImpl" timestamp="1586263014402">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="419" y="238" key="FileChooserDialogImpl/0.0.1280.994@0.0.1280.994" timestamp="1586263014402" />
+    <state x="360" y="310" key="NewPhpClassDialog" timestamp="1587855620085">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="360" y="310" key="NewPhpClassDialog/0.0.1280.994@0.0.1280.994" timestamp="1587855620085" />
+    <state x="303" y="213" width="672" height="678" key="search.everywhere.popup" timestamp="1587856131889">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="303" y="213" width="672" height="678" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1587856131889" />
+  </component>
+</project>

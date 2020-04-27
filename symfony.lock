@@ -243,11 +243,17 @@
     "symfony/orm-pack": {
         "version": "v1.0.7"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.15.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.13.1"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.13.1"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.15.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.13.1"
@@ -296,11 +302,17 @@
     "symfony/security-http": {
         "version": "v5.0.2"
     },
+    "symfony/serializer": {
+        "version": "v5.0.7"
+    },
     "symfony/service-contracts": {
         "version": "v2.0.1"
     },
     "symfony/stopwatch": {
         "version": "v5.0.2"
+    },
+    "symfony/string": {
+        "version": "v5.0.7"
     },
     "symfony/translation-contracts": {
         "version": "v2.0.1"

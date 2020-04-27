@@ -7,10 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="`tag`")
  * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
  */
-class Tag
+class Tag implements \JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -63,7 +62,7 @@ class Tag
     {
         if (!$this->posts->contains($post)) {
             $this->posts = $post;
-            $post->addTags($this);
+            $post->addTag($this);
         }
 
         return $this;
@@ -77,5 +76,15 @@ class Tag
         }
 
         return $this;
+    }
+
+    public function jsonSerialize(): string
+    {
+        return $this->name;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 }
